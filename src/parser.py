@@ -4,12 +4,12 @@ import dill
 
 
 class Parser:
-    def __init__(self, source_obj: Any = None, path: str = None):
+    def __init__(self, path: str = None, source_obj: Any = None):
 
-        if source_obj is not None:
-            self.context = self.get_source_body(source_obj)
-        elif path is not None:
+        if path is not None:
             self.context = self.get_file_body(path)
+        elif source_obj is not None:
+            self.context = self.get_source_body(source_obj)
         else:
             raise Exception('`source_obj` or `path` is not passed.')
 
